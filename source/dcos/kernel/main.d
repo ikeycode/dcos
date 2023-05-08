@@ -13,3 +13,11 @@
  * License: Zlib
  */
 module main;
+
+/** 
+ * Main entry into the DCOS kernel
+ */
+extern (C) void kmain(uint magic, uint addr)
+{
+
+}
