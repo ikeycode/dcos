@@ -22,4 +22,13 @@ import dcos.kernel.vga;
 extern (C) void kmain(uint magic, uint addr)
 {
     VGA.clear();
+    VGA.put("Initialising DCOS\n");
+    while (true)
+    {
+        /* Suspend execution */
+        asm @trusted
+        {
+            hlt;
+        }
+    }
 }
