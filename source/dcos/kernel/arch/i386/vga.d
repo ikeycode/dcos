@@ -32,11 +32,11 @@ public static:
     /** 
      * Clear the terminal display
      */
-    void clear()
+    void clear() @trusted
     {
-        foreach (i; 0 .. width * height)
+        foreach (idx; 0 .. width * height)
         {
-            () @trusted { volatileStore(videoMemory + i, 0); }();
+            volatileStore(videoMemory + idx, 0);
         }
     }
 
@@ -60,6 +60,8 @@ public static:
                 x = 0;
                 y = y + 1;
                 continue writer;
+            case '\0':
+                break writer;
             default:
                 /* TODO: Support colours */
                 const colorRepr = vgaColor(color.fg, color.bg);
