@@ -17,6 +17,9 @@ module dcos.kernel.rt;
 
 import dcos.kernel.vga;
 
+@safe:
+public:
+
 /** 
  * D assertion handling
  *

@@ -15,6 +15,8 @@
 
 module dcos.kernel.vga;
 
+@safe:
+
 /** 
  * Used to control colour sequences in output
  */
