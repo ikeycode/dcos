@@ -92,7 +92,7 @@ private:
      *
      * Returns: VGA colour sequence
      */
-    static auto vgaColor(ushort fg, ushort bg) => cast(ushort)(fg | bg << 4);
+    pragma(inline, true) pure static auto vgaColor(ushort fg, ushort bg) => cast(ushort)(fg | bg << 4);
 
     /** 
      * Convert char + color into VGA reprensentation
@@ -103,15 +103,18 @@ private:
      *
      * Returns: VGA representation of the character
      */
-    static auto vgaRepresentation(Char)(Char c, ushort color) => cast(ushort)(c | color << 8);
+    pragma(inline, true) pure static auto vgaRepresentation(Char)(Char c, ushort color) => cast(
+            ushort)(c | color << 8);
 
-    __gshared ushort* _videoMemory = () @trusted { return cast(ushort*) 0xB8000; }();
+    pragma(inline, true) __gshared ushort* _videoMemory = () @trusted {
+        return cast(ushort*) 0xB8000;
+    }();
 
-    pragma(inline, true) @property auto videoMemory() @trusted => _videoMemory;
-    pragma(inline, true) @property auto x() @trusted => _x;
-    pragma(inline, true) @property auto x(uint n) @trusted => _x = n;
-    pragma(inline, true) @property auto y() @trusted => _y;
-    pragma(inline, true) @property auto y(uint n) @trusted => _y = n;
+    pragma(inline, true) @property videoMemory() @trusted => _videoMemory;
+    pragma(inline, true) @property x() @trusted => _x;
+    pragma(inline, true) @property x(uint n) @trusted => _x = n;
+    pragma(inline, true) @property y() @trusted => _y;
+    pragma(inline, true) @property y(uint n) @trusted => _y = n;
 
     __gshared uint _x;
     __gshared uint _y;
