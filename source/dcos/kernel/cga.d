@@ -5,22 +5,22 @@
  */
 
 /**
- * dcos.kernel.vga
+ * dcos.kernel.cga
  *
- * Forward to architecture specific VGA implementation
+ * Forward to architecture specific CGA implementation
  *
  * Authors: Copyright © 2023 Ikey Doherty
  * License: Zlib
  */
 
-module dcos.kernel.vga;
+module dcos.kernel.cga;
 
 @safe:
 
 /** 
  * Used to control colour sequences in output
  */
-public enum VGAColorCode : ubyte
+public enum CGAColorCode : ubyte
 {
     black,
     blue,
@@ -41,28 +41,28 @@ public enum VGAColorCode : ubyte
 }
 
 /** 
- * Combination of foreground and background VGAColorCode
+ * Combination of foreground and background CGAColorCode
  */
-public struct VGAColor
+public struct CGAColor
 {
 align(1):
 
     /** 
      * Foreground colour
      */
-    VGAColorCode fg = VGAColorCode.white;
+    CGAColorCode fg = CGAColorCode.white;
 
     /** 
      * Background colour
      */
-    VGAColorCode bg = VGAColorCode.black;
+    CGAColorCode bg = CGAColorCode.black;
 }
 
 version (X86)
 {
-    public import dcos.kernel.arch.i386.vga;
+    public import dcos.kernel.arch.i386.cga;
 }
 else
 {
-    static assert(0, "Unsupported VGA architecture");
+    static assert(0, "Unsupported CGA architecture");
 }

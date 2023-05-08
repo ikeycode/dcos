@@ -5,26 +5,26 @@
  */
 
 /**
- * dcos.kernel.arch.i386.vga
+ * dcos.kernel.arch.i386.cga
  *
- * x86 implementation for VGA
+ * x86 implementation for CGA
  *
  * Authors: Copyright © 2023 Ikey Doherty
  * License: Zlib
  */
 
-module dcos.kernel.arch.i386.vga;
+module dcos.kernel.arch.i386.cga;
 
 @safe:
 
 import core.volatile : volatileStore;
 import std.traits : isSomeString, OriginalType;
-public import dcos.kernel.vga : VGAColor, VGAColorCode;
+import dcos.kernel.cga : CGAColor, CGAColorCode;
 
 /** 
- * Namespace access to the VGA methods
+ * Namespace access to the CGA methods
  */
-struct VGA
+struct CGA
 {
 
 public static:
@@ -41,13 +41,13 @@ public static:
     }
 
     /** 
-     * Render some text to the VGA display
+     * Render some text to the CGA display
      *
      * Params:
      *   text = Input text to render
      *   color = Colour to draw the text with
      */
-    void put(String)(String text, VGAColor color = VGAColor.init)
+    void put(String)(String text, CGAColor color = CGAColor.init)
             if (isSomeString!(OriginalType!String))
     {
         writer: foreach (elem; text)
@@ -63,8 +63,8 @@ public static:
             case '\0':
                 break writer;
             default:
-                immutable colorRepr = vgaColor(color.fg, color.bg);
-                immutable repr = vgaRepresentation(elem, colorRepr);
+                immutable colorRepr = cgaColor(color.fg, color.bg);
+                immutable repr = cgaRepresentation(elem, colorRepr);
 
                 () @trusted { volatileStore(videoMemory + idx, repr); }();
                 break;
@@ -83,26 +83,26 @@ public static:
 private:
 
     /** 
-     * Convert VGA color sequence
+     * Convert CGA color sequence
      *
      * Params:
      *   fg = Foreground color ID
      *   bg = Background color ID
      *
-     * Returns: VGA colour sequence
+     * Returns: CGA colour sequence
      */
-    pragma(inline, true) pure static auto vgaColor(ushort fg, ushort bg) => cast(ushort)(fg | bg << 4);
+    pragma(inline, true) pure static auto cgaColor(ushort fg, ushort bg) => cast(ushort)(fg | bg << 4);
 
     /** 
-     * Convert char + colour into VGA reprensentation
+     * Convert char + colour into CGA reprensentation
      *
      * Params:
      *   c = Character to display
-     *   color = VGA colour representation
+     *   color = CGA colour representation
      *
-     * Returns: VGA representation of the character
+     * Returns: CGA representation of the character
      */
-    pragma(inline, true) pure static auto vgaRepresentation(Char)(Char c, ushort color) => cast(
+    pragma(inline, true) pure static auto cgaRepresentation(Char)(Char c, ushort color) => cast(
             ushort)(c | color << 8);
 
     pragma(inline, true) __gshared ushort* _videoMemory = () @trusted {

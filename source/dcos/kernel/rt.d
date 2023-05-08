@@ -15,7 +15,7 @@
 
 module dcos.kernel.rt;
 
-import dcos.kernel.vga;
+import dcos.kernel.cga;
 
 @safe:
 public:
@@ -30,8 +30,8 @@ public:
 extern (C) void _d_assert(string file, uint line)
 {
     /* TODO: Use logging system! */
-    VGA.put(file, VGAColor(VGAColorCode.darkGrey));
-    VGA.put(":: asserted!", VGAColor(VGAColorCode.red));
+    CGA.put(file, CGAColor(CGAColorCode.darkGrey));
+    CGA.put(":: asserted!", CGAColor(CGAColorCode.red));
 }
 
 /** 
@@ -45,7 +45,7 @@ extern (C) void _d_assert(string file, uint line)
 extern (C) void _d_assert_msg(string msg, string file, uint line,)
 {
     /* TODO: Use logging system! */
-    VGA.put(file, VGAColor(VGAColorCode.darkGrey));
-    VGA.put(":: assert: ", VGAColor(VGAColorCode.red));
-    VGA.put(msg, VGAColor(VGAColorCode.lightGrey));
+    CGA.put(file, CGAColor(CGAColorCode.darkGrey));
+    CGA.put(":: assert: ", CGAColor(CGAColorCode.red));
+    CGA.put(msg, CGAColor(CGAColorCode.lightGrey));
 }

@@ -7,7 +7,7 @@ kernel_sources = [
 
 # Arch specific sources
 kernel_sources += [
-    'arch' / target_arch / 'vga.d'
+    'arch' / target_arch / 'cga.d'
 ]
 
 # Our entry hook

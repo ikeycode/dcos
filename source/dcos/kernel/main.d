@@ -14,16 +14,16 @@
  */
 module main;
 
-import dcos.kernel.vga;
+import dcos.kernel.cga;
 
 /** 
  * Main entry into the DCOS kernel
  */
 extern (C) void kmain(uint magic, uint addr)
 {
-    VGA.clear();
-    VGA.put(" >> ", VGAColor(VGAColorCode.lightBrown));
-    VGA.put("Initialising DCOS\n");
+    CGA.clear();
+    CGA.put(" >> ", CGAColor(CGAColorCode.lightBrown));
+    CGA.put("Initialising DCOS\n");
 
     while (true)
     {
