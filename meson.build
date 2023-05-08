@@ -20,6 +20,7 @@ ldc2 = find_program('ldc2')
 nasm = find_program('nasm')
 linker = find_program('ld.lld')
 
+top_root = meson.current_source_dir() / 'source'
 
 # Compile assembly 
 nasm_generator = generator(nasm,
@@ -43,6 +44,8 @@ ldc_generator = generator(ldc2,
         '-of=@OUTPUT@',
         '-g',
         '-c',
+        '-I',
+        top_root,
     ]
 )
 

@@ -14,10 +14,12 @@
  */
 module main;
 
+import dcos.kernel.vga;
+
 /** 
  * Main entry into the DCOS kernel
  */
 extern (C) void kmain(uint magic, uint addr)
 {
-
+    VGA.clear();
 }

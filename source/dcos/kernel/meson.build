@@ -4,6 +4,11 @@ kernel_sources = [
     'main.d',
 ]
 
+# Arch specific sources
+kernel_sources += [
+    'arch' / target_arch / 'vga.d'
+]
+
 # Our entry hook
 boot_code = nasm_generator.process(
     [meson.current_source_dir() / 'arch' / target_arch / 'boot.asm']
