@@ -40,6 +40,7 @@ ldc_generator = generator(ldc2,
         build_arch,
         build_opt_level,
         '-enable-color=1',
+        '--gcc=clang',
         '-defaultlib=',
         '@INPUT@',
         '-of=@OUTPUT@',
@@ -47,6 +48,8 @@ ldc_generator = generator(ldc2,
         '-c',
         '-I',
         top_root,
+        '--polly',
+        '--flto=thin',
     ]
 )
 
