@@ -63,9 +63,8 @@ public static:
             case '\0':
                 break writer;
             default:
-                /* TODO: Support colours */
-                const colorRepr = vgaColor(color.fg, color.bg);
-                const repr = vgaRepresentation(elem, colorRepr);
+                immutable colorRepr = vgaColor(color.fg, color.bg);
+                immutable repr = vgaRepresentation(elem, colorRepr);
 
                 () @trusted { volatileStore(videoMemory + idx, repr); }();
                 break;
