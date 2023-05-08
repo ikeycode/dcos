@@ -1,5 +1,9 @@
 D Core OS
 ---------
 
-Rough attempt to make a core OS for D baremetal applications and a future
-Serpent OS kernel
+Experimental project to learn more about OS theory, while
+highlighting the benefits of developing with D, even in a
+constrained environment.
+
+If it ever becomes useful, it could potentially serve as
+a base for D baremetal applications.
