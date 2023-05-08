@@ -19,6 +19,7 @@ module dcos.kernel.arch.i386.vga;
 
 import core.volatile : volatileStore;
 import std.traits : isSomeString, OriginalType;
+public import dcos.kernel.vga : VGAColor, VGAColorCode;
 
 /** 
  * Namespace access to the VGA methods
@@ -41,10 +42,13 @@ public static:
 
     /** 
      * Render some text to the VGA display
+     *
      * Params:
      *   text = Input text to render
+     *   color = Colour to draw the text with
      */
-    void put(String)(String text) if (isSomeString!(OriginalType!String))
+    void put(String)(String text, VGAColor color = VGAColor.init)
+            if (isSomeString!(OriginalType!String))
     {
         writer: foreach (elem; text)
         {
@@ -58,7 +62,7 @@ public static:
                 continue writer;
             default:
                 /* TODO: Support colours */
-                const colorRepr = vgaColor(3, 0);
+                const colorRepr = vgaColor(color.fg, color.bg);
                 const repr = vgaRepresentation(elem, colorRepr);
 
                 () @trusted { volatileStore(videoMemory + idx, repr); }();

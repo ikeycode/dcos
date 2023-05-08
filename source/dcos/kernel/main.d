@@ -22,6 +22,7 @@ import dcos.kernel.vga;
 extern (C) void kmain(uint magic, uint addr)
 {
     VGA.clear();
+    VGA.put(" >> ", VGAColor(VGAColorCode.lightBlue));
     VGA.put("Initialising DCOS\n");
     while (true)
     {
