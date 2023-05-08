@@ -2,6 +2,7 @@
 # -i, but incremental compilation may fail otherwise.
 kernel_sources = [
     'main.d',
+    'rt.d',
 ]
 
 # Arch specific sources
