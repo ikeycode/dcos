@@ -39,6 +39,7 @@ ldc_generator = generator(ldc2,
     arguments: [
         build_arch,
         build_opt_level,
+        '-enable-color=1',
         '-defaultlib=',
         '@INPUT@',
         '-of=@OUTPUT@',
