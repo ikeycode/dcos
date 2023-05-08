@@ -94,11 +94,11 @@ private:
     pragma(inline, true) pure static auto vgaColor(ushort fg, ushort bg) => cast(ushort)(fg | bg << 4);
 
     /** 
-     * Convert char + color into VGA reprensentation
+     * Convert char + colour into VGA reprensentation
      *
      * Params:
      *   c = Character to display
-     *   color = VGA color representation
+     *   color = VGA colour representation
      *
      * Returns: VGA representation of the character
      */
