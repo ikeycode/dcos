@@ -25,6 +25,8 @@ extern (C) void kmain(uint magic, uint addr)
     CGA.put(" >> ", CGAColor(CGAColorCode.lightBrown));
     CGA.put("Initialising DCOS\n");
 
+    CGA.put(import("intro.txt"), CGAColor(CGAColorCode.lightGrey));
+
     while (true)
     {
         /* Suspend execution */

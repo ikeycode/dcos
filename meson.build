@@ -21,6 +21,7 @@ nasm = find_program('nasm')
 linker = find_program('ld.lld')
 
 top_root = meson.current_source_dir() / 'source'
+top_includes = meson.current_source_dir() / 'includes'
 
 # Compile assembly 
 nasm_generator = generator(nasm,
@@ -50,6 +51,7 @@ ldc_generator = generator(ldc2,
         top_root,
         '--polly',
         '--flto=thin',
+        '-J', top_includes,
     ]
 )
 

@@ -1,0 +1,12 @@
+  
+  
+  This is a simplistic demonstration of using D to create an i386,
+  baremetal kernel.
+
+  Notably we avoid the use of BetterC completely, and try to leverage
+  as much of the D featureset as possible.
+
+  This project has been created purely to scratch an itch and serves
+  no purpose other than a learning exercise.
+
+     - ikey
