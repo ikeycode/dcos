@@ -52,6 +52,7 @@ ldc_generator = generator(ldc2,
         '--polly',
         '--flto=thin',
         '-J', top_includes,
+        '-static',
     ]
 )
 
