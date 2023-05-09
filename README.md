@@ -1,9 +1,10 @@
 DCOS (D-Core OS)
----------
+---------------
 
-Experimental project to learn more about OS theory, while
-highlighting the benefits of developing with D, even in a
-constrained environment.
+Pet project to help me learn more about OS theory, so that I can
+build out more optimal tooling solutions for Serpent OS. This is
+only a research project and there are no plans to incorporate it
+into Serpent OS.
 
 ### Current state
 
@@ -11,8 +12,8 @@ It's a complete crapshow right now with basic i386/CGA support.
 I'll start working towards x86_64 support and enforce use of
 framebuffers, including the GOP FB from UEFI.
 
-Don't expect anything from this project, it's scratching a
-personal itch!
+Per issue 1, the plan is to start out modern and drop the legacy cruft
+before it has a chance to build up.
 
 ### Testing
 
