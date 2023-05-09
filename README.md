@@ -23,3 +23,9 @@ we'll support different modes.
     meson setup build
     ninja -C build -v
     qemu-system-i386 -kernel build/source/dcos/kernel/dcos_kernel -m 128 -enable-kvm
+
+### License
+
+Copyright © 2023 Ikey Doherty
+
+Available under the terms of the [Zlib](https://spdx.org/licenses/Zlib.html) license
