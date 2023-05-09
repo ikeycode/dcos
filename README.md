@@ -1,4 +1,4 @@
-D Core OS
+DCOS (D-Core OS)
 ---------
 
 Experimental project to learn more about OS theory, while
