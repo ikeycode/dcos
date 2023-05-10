@@ -53,6 +53,8 @@ ldc_generator = generator(ldc2,
         '--flto=thin',
         '-J', top_includes,
         '-static',
+        '--disable-simplify-drtcalls',
+        '--disable-simplify-libcalls'
     ]
 )
 
